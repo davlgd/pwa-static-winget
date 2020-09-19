@@ -9,9 +9,10 @@ fetch(wingetUrl)
 // On affiche la liste des paquets dans la zone pkgsList
 let showPkgs = (data) => {
     let zone = document.getElementById("pkgsList")    
-    let list = document.createElement("ol")
+    let frag = document.createDocumentFragment();
 
     // Pour chaque élément du fichier JSON on créé une puce avec un lien
+    // On stocke le tout dans un fragment dans un premier temps
     data.forEach(app => {
         
         let link = document.createElement("a")
@@ -23,12 +24,16 @@ let showPkgs = (data) => {
         let puce = document.createElement("li")
         
         puce.appendChild(link)
-        list.appendChild(puce)
+        frag.appendChild(puce)
     });
 
-    // On affiche le nombre d'éléments et la liste à puces
+    // On affiche le nombre d'éléments
     zone.innerText = `Le dépôt de winget compte ${data.length} entrées : `
-    zone.appendChild(list)
+
+    // On affiche la liste à puce en utilisant le fragment
+    let list = document.createElement("ol")
+    list.appendChild(frag)
+    zone.appendChild(list)    
 
     document.title = `Paquets winget (${data.length})`
 }
