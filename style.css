@@ -1,0 +1,36 @@
+body {
+    background: #283134;
+    font-family: monospace;
+    font-size: 1em;
+    overflow-wrap: anywhere; 
+    margin:0;
+}
+
+body, a {
+    color: #dae5e9;
+}
+
+a:hover {
+    color: #ea7e19;
+}
+
+nav {
+    width:100%;
+    position: fixed;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+    background: #05384a;
+    padding: 10px;
+}
+
+main {
+    width: 95%;
+    margin: auto;
+    padding-top: 70px;
+}
+
+#logo {
+    vertical-align: middle;
+    margin-right: 15px;
+}
